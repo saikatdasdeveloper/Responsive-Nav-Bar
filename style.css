@@ -1,0 +1,181 @@
+/* The Header will Start from begining Position */
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+@font-face {
+  font-family: 'MyCustomFont'; /* Give your font a name */
+  src: url('./fonts/Orange Gummy.otf') format('opentype'),
+       url('./fonts/Orange Gummy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+  
+  /* Set full height to html & body */
+  html, body {
+    height: 100%;
+    font-family: 'MyCustomFont', sans-serif;
+  }
+  
+  /* Apply background image correctly */
+  body {
+    background: url(./assets/back1.jpg) no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed; /* Optional: for parallax-like effect */
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    position: sticky;
+    top: 0;
+    /* background: transparent; */
+    /* Creates a Glass Effect */
+    /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);   */
+    z-index: 999;
+
+    background: rgba(255, 255, 255, 0.2);
+    /* border-radius: 2px; */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2rem;
+    max-width: 1600px;
+  }
+
+  .logo {
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    
+  }
+  img {
+    display: block;
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo a {
+    color: inherit;             /* Inherit white from .logo */
+    text-decoration: none;      /* Remove underline */
+  }
+  
+  .navbar-container .links{
+    display: flex;
+    text-align: center;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 3px 20px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    transition: all 0.7s ease;
+    white-space: nowrap;
+  }
+
+  .links a:hover{
+    color: #162530;
+    background-color: rgba(188, 212, 229, 0.8);
+  }
+
+  .navbar-toggle{
+    display: none;        /* It will not shown By Default               */
+    background: transparent;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  .bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background: #ffff;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Responsive Styling */
+  @media (max-width: 880px) {
+    .navbar {
+        backdrop-filter: none;
+    }
+
+    .navbar-container .links {
+        display: none;        /*Works as Toggle with Bar */
+        flex-direction: column;   /* It will Make Menu Items column */
+        align-items: flex-start;
+        gap: 1.7rem !important;
+        position: absolute;
+        height: 100vh;
+        width: 250px;
+        top: 0;
+        right: 0;
+        padding: 5rem 1.5rem;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+        /* Blur Effect */
+        backdrop-filter: blur(10px);
+        
+
+    }
+    .navbar-container .links.active {
+        display: flex;
+    }
+    .navbar-toggle {
+        display: block;
+        z-index: 999;
+    }
+/* Animation when active */
+.navbar-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  
+  .navbar-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .navbar-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+@media  (max-width: 480px) {
+
+    .navbar-container{
+        padding: 0 1rem;
+    }
+    .logo {
+        font-size: 1.7rem;
+
+    }
+    .navbar-container .links li a {
+        font-size: 1.2rem;
+        padding: 3px;
+    }
+
+    img {
+        display: none;
+    }
+}
+
+
+
